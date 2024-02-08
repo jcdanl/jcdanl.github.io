@@ -12,9 +12,11 @@ website:
         href: project.qmd
       - text: Blog
         href: blog-listing.qmd
+      - text: R Basics
+        href: danl-399-quatro-r.qmd
             
   page-footer: 
-    center: "Powered with GitHub and Quarto<br>© YOUR NAME, 2024"
+    center: "Powered with GitHub and Quarto<br>© Jason Copella, 2024"
 
 format:
   html:
