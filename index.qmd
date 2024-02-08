@@ -2,14 +2,14 @@
 title: "Jason Copella" 
 about:
   template: trestles  # jolla  trestles  solana  marquee  broadside
-  image: https://bloximages.chicago2.vip.townnews.com/fltimes.com/content/tncms/assets/v3/editorial/c/3c/c3c5d4c0-41be-11ee-81a6-6bc00561cd43/64e61361c3050.image.jpg
+  image: https://upload.wikimedia.org/wikipedia/en/thumb/2/23/SUNY_Geneseo_Knights_2022_logo.svg/1200px-SUNY_Geneseo_Knights_2022_logo.svg.png
   image-width: 16em
   image-shape: rounded # rectangle  round  rounded
   
   links:
     - icon: linkedin
       text: LinkedIn
-      href: https://linkedin.com
+      href: https://www.linkedin.com/in/jason-copella-15506b264/
     - icon: instagram
       text: Instagram
       href: https://instagram.com
