@@ -13,7 +13,7 @@ website:
       - text: Blog
         href: blog-listing.qmd
       - text: R Basics
-        href: danl-399-quatro-r.html
+        href: danl-399-quarto-r.qmd
             
   page-footer: 
     center: "Powered with GitHub and Quarto<br>© Jason Copella, 2024"
