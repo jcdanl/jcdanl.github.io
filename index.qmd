@@ -1,5 +1,5 @@
 ---
-title: "YOUR NAME" 
+title: "Jason Copella" 
 about:
   template: trestles  # jolla  trestles  solana  marquee  broadside
   image: img/profile.png
@@ -15,27 +15,27 @@ about:
       href: https://instagram.com
     - icon: github
       text: GitHub
-      href: https://github.com
+      href: https://jcdanl.github.io
     - icon: file-earmark-pdf
       text: Resumé
       href: https://GITHUB_USERNAME.github.io/resume-example.pdf
     - icon: mailbox
       text: Email
-      href: mailto:YOUR_EMAIL@geneseo.edu
+      href: mailto:jtc14@geneseo.edu
 
 ---
 
 
-Finley Malloc majors in Data Analytics at SUNY Geneseo. When not working on data analytics, Finley enjoys spending time unicycling and playing with her pet iguana.
+Jason Copella majors in Data Analytics with a minor in finance at SUNY Geneseo. When not working on schoolwork, Jason enjoys spending time running and listening to music.
 
 ## Education
 
 State University of New York at Geneseo | Geneseo, NY <br>
-B.S. in Data Analytics | Aug 2022 - May 2026 <br>
-Minor in Business Administration 
+B.S. in Data Analytics | Aug 2022 - May 2025 <br>
+Minor in Finance 
 
 ## Experience
 
-Starbucks Analytics | Data Analyst Intern | May 2024 - Aug 2024
+Ried's Food Barn| Senior Sales Associate | Nov 2019 - Mar 2024
 
 
