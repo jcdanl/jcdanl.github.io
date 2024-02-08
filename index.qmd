@@ -18,7 +18,7 @@ about:
       href: https://jcdanl.github.io
     - icon: file-earmark-pdf
       text: Resumé
-      href: https://GITHUB_USERNAME.github.io/resume-example.pdf
+      href: https://jcdanl.github.io/JasonCopellaResume.pdf
     - icon: mailbox
       text: Email
       href: mailto:jtc14@geneseo.edu
