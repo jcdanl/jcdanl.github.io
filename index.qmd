@@ -2,7 +2,7 @@
 title: "Jason Copella" 
 about:
   template: trestles  # jolla  trestles  solana  marquee  broadside
-  image: img/profile.png
+  image: https://bloximages.chicago2.vip.townnews.com/fltimes.com/content/tncms/assets/v3/editorial/c/3c/c3c5d4c0-41be-11ee-81a6-6bc00561cd43/64e61361c3050.image.jpg
   image-width: 16em
   image-shape: rounded # rectangle  round  rounded
   
@@ -26,13 +26,16 @@ about:
 ---
 
 
-Jason Copella majors in Data Analytics with a minor in finance at SUNY Geneseo. When not working on schoolwork, Jason enjoys spending time running and listening to music.
+Jason Copella majors in Data Analytics with a minor in finance at SUNY Geneseo. When not working on schoolwork, Jason enjoys spending time running and listening to music."
+
 
 ## Education
+
 
 State University of New York at Geneseo | Geneseo, NY <br>
 B.S. in Data Analytics | Aug 2022 - May 2025 <br>
 Minor in Finance 
+
 
 ## Experience
 
