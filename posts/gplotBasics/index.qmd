@@ -3,7 +3,7 @@ title: "ggplot Basics"
 author: "Jason Copella"
 date: "2024-2-20"
 categories: [news, code, analysis]
-image: "image.jpg"
+image: "https://images.saymedia-content.com/.image/t_share/MTc0NDYxODE0NDk3NjE3NTQy/starting-with-ggplot2-in-r.png"
 ---
 
 The ggplot functions allow for the creation of various visual charts and graphs to display the relationships between variables. We can use coding to determine specific graphs as well as the details in these graphs to make them more visually appealing to viewers. An example of a ggplot graph is below.
@@ -15,5 +15,3 @@ ggplot(data = mpg) +
                    y = hwy, 
                    color = class) )
 ```
-
-![](image.jpg)
