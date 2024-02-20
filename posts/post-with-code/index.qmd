@@ -1,15 +1,19 @@
 ---
-title: "Post With Code"
-author: "YOUR NAME"
-date: "2023-10-30"
+title: "ggplot Basics"
+author: "Jason Copella"
+date: "2024-02-20"
 categories: [news, code, analysis]
 image: "image.jpg"
 ---
 
-This is a post with executable code with no space in the folder name.
+The ggplot functions allow for the creation of various visual charts and graphs to display the relationships between variables. We can use coding to determine specific graphs as well as the details in these graphs to make them more visually appealing to viewers. An example of a ggplot graph is below.
 
 ```{r}
-1 + 1
+ggplot(data = mpg) + 
+  geom_point(mapping = 
+               aes(x = displ, 
+                   y = hwy, 
+                   color = class) )
 ```
 
 ![](image.jpg)
