@@ -1,8 +1,9 @@
 {
   "listing": "/blog-listing.html",
   "items": [
-    "/posts/starwars/starwars_df.html",
+    "/posts/ggplot/ggplot-blog.html",
     "/posts/post-with-code/index.html",
+    "/posts/starwars/starwars_df.html",
     "/posts/welcome/index.html"
   ]
 }

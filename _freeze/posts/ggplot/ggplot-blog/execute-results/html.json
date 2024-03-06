@@ -1,0 +1,16 @@
+{
+  "hash": "7dfb4e4d7c616136cd134ab5e9de4f8c",
+  "result": {
+    "markdown": "---\ntitle: \"ggplot\"\nauthor: \"Jason Copella\"\ndate: \"2024-02-21\"\ncategories: [ggplot, r, code, data-visualization]\nimage: \"image.png\"\n\nexecute: \n  warning: false\n  message: false\n  \ntoc: true\n---\n\n\n\n\n\n\n\n\nThe ggplot functions allow for the creation of various visual charts and graphs to display the relationships between variables. We can use coding to determine specific graphs as well as the details in these graphs to make them more visually appealing to viewers. An example of a ggplot code is below.\n\n\n::: {.cell}\n\n```{.r .cell-code}\nggplot(data = mpg) + \n  geom_point(mapping = \n               aes(x = displ, \n                   y = hwy, \n                   color = class) )\n```\n\n::: {.cell-output-display}\n![](ggplot-blog_files/figure-html/unnamed-chunk-2-1.png){width=672}\n:::\n:::\n",
+    "supporting": [
+      "ggplot-blog_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

@@ -1,15 +1,18 @@
 ---
-title: "ggplot Basics"
+title: "ggplot"
 author: "Jason Copella"
-date: "2024-2-20"
-categories: [news, code, analysis]
-image: "image.jpg"
+date: "2024-02-21"
+categories: [ggplot, r, code, data-visualization]
+image: "image.png"
+
+execute: 
+  warning: false
+  message: false
+  
+toc: true
 ---
-
-```{r setup}
+```{r}
 #| include: false
-
-
 
 library(knitr)
 library(rmarkdown)
@@ -28,8 +31,10 @@ theme_set(theme_ipsum()+
                                             margin = margin(0,10,0,0))
                 )
           )
-
 ```
+
+
+
 
 
 The ggplot functions allow for the creation of various visual charts and graphs to display the relationships between variables. We can use coding to determine specific graphs as well as the details in these graphs to make them more visually appealing to viewers. An example of a ggplot code is below.
@@ -41,5 +46,3 @@ ggplot(data = mpg) +
                    y = hwy, 
                    color = class) )
 ```
-
-![](image.jpg)
