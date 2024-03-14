@@ -8,7 +8,7 @@ website:
     # background: "#1c4982"
     pinned: true
     left:
-      - text: Project Proposal 
+      - text: Project Proposal
         href: project.qmd
       - text: Blog
         href: blog-listing.qmd
