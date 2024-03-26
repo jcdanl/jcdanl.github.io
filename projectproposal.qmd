@@ -1,0 +1,20 @@
+---
+title: "Project Proposal"
+author: "Jason Copella"
+editor: visual
+---
+
+------------------------------------------------------------------------
+
+## Dataset Proposal
+
+My project will study the a large dataset containing various statistics and salaries for every NBA player on a roster for the 2022-23 season. This will allow me to examine which statisitics are most valued by NBA front offices when deciding how much money they offer a given player, as well as the most important statistics, both basic and advanced, when deciding to give a player a "max" contract. With advanced statistics and analytics consistenly becoming more important in league circles, this will allow me to examine if advanced statistics that go beyond the naked eye have become more valued if front offices. I can also see which stats are most strongly correlated with higher salaries, as well as winning the most games. This will also allow me to see which basic stats are most strongly correlated to certain adavanced stats and vice versa. I plan to utilize a wide range of ggplot methods to examine these results such as correlation heat maps, bar graphs, and basic plots.
+
+## Looking at the dataset
+
+Below, I have provided code to load and examine the dataset I plan to use for my project:
+
+```{r}
+final_project_dataset<-read.csv("nba_2022-23_stats_salary.csv")
+View(final_project_dataset)
+```

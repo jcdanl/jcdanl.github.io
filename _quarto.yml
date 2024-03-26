@@ -11,7 +11,7 @@ website:
       - text: Project
         href: project.qmd
       - text: Proposal
-        href: project-proposal.qmd
+        href: projectproposal.qmd
       - text: Blog
         href: blog-listing.qmd
       - text: R Basics

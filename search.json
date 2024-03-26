@@ -82,5 +82,19 @@
     "title": "Insightful Analytics",
     "section": "",
     "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n  \n\n\n\n\nggplot Basics\n\n\n\n\n\n\n\n\n\nFeb 20, 2024\n\n\nJason Copella\n\n\n0 min\n\n\n\n\n\n\n  \n\n\n\n\nggplot Basics\n\n\n\n\n\n\n\n\n\nFeb 20, 2024\n\n\nJason Copella\n\n\n1 min\n\n\n\n\n\n\n  \n\n\n\n\nStarwars\n\n\n\n\n\n\n\n\n\nOct 30, 2023\n\n\nYour Name\n\n\n2 min\n\n\n\n\n\n\n  \n\n\n\n\nWelcome To My Blog\n\n\n\n\n\n\n\n\n\nOct 27, 2023\n\n\nYOUR NAME\n\n\n0 min\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "projectproposal.html#dataset-proposal",
+    "href": "projectproposal.html#dataset-proposal",
+    "title": "Project Proposal",
+    "section": "Dataset Proposal",
+    "text": "Dataset Proposal\nMy project will study the a large dataset containing various statistics and salaries for every NBA player on a roster for the 2022-23 season. This will allow me to examine which statisitics are most valued by NBA front offices when deciding how much money they offer a given player, as well as the most important statistics, both basic and advanced, when deciding to give a player a “max” contract. With advanced statistics and analytics consistenly becoming more important in league circles, this will allow me to examine if advanced statistics that go beyond the naked eye have become more valued if front offices. I can also see which stats are most strongly correlated with higher salaries, as well as winning the most games. This will also allow me to see which basic stats are most strongly correlated to certain adavanced stats and vice versa. I plan to utilize a wide range of ggplot methods to examine these results such as correlation heat maps, bar graphs, and basic plots."
+  },
+  {
+    "objectID": "projectproposal.html#looking-at-the-dataset",
+    "href": "projectproposal.html#looking-at-the-dataset",
+    "title": "Project Proposal",
+    "section": "Looking at the dataset",
+    "text": "Looking at the dataset\nBelow, I have provided code to load and examine the dataset I plan to use for my project:\n\nfinal_project_dataset&lt;-read.csv(\"nba_2022-23_stats_salary.csv\")\nView(final_project_dataset)"
   }
 ]
