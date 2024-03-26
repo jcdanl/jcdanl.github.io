@@ -17,73 +17,14 @@ execute:
   message: false
   warning: false
 
-from: markdown+emoji
----
-```{r setup}
-#| include: false
-library(tidyverse)
-library(skimr)
-library(ggthemes)
-library(hrbrthemes)
-
-theme_set(theme_ipsum()+
-          theme(strip.background =element_rect(fill="lightgray"),
-                axis.title.x = 
-                  element_text(angle = 0,
-                               size = rel(1.33),
-                               margin = margin(10,0,0,0)),
-                axis.title.y = 
-                  element_text(angle = 0,
-                               size = rel(1.33),
-                               margin = margin(0,10,0,0))
-                )
-          )
-```
+## Dataset Proposal
+#My project will study the a large dataset containing various statistics and salaries for every NBA player on a roster for the 2022-23 season. This will allow me to examine which statisitics are most valued by NBA front offices when deciding how much money they offer a given player, as well as the most important statistics, both basic and advanced, when deciding to give a player a "max" contract. With advanced statistics and analytics consistenly becoming more important in league circles, this will allow me to examine if advanced statistics that go beyond the naked eye have become more valued if front offices. I can also see which stats are most strongly correlated with higher salaries, as well as winning the most games. This will also allow me to see which basic stats are most strongly correlated to certain adavanced stats and vice versa. I plan to utilize a wide range of ggplot methods to examine these results such as correlation heat maps, bar graphs, and basic plots.
 
 
-
-# Introduction
-
-About this project :clap:
-
+## Looking at the dataset
+#Below, I have provided code to load and examine the dataset I plan to use for my project:
 ```{r}
-1 + 1
+final_project_dataset<-read.csv("nba_2022-23_stats_salary.csv")
+View(final_project_dataset)
 ```
-
-
-# Data
-
-The data.frame `mpg` contains a subset of the fuel economy data that the EPA makes available on [https://fueleconomy.gov/](https://fueleconomy.gov/). It contains only models which had a new release every year between 1999 and 2008 - this was used as a proxy for the popularity of the car. :oncoming_automobile:
-
-
-## Summary Statistics
-
-```{r}
-mpg <- ggplot2::mpg
-```
-
-```{r}
-#| results: asis
-#| echo: false
-rmarkdown::paged_table(mpg) 
-```
-
-
-```{r}
-skim(mpg) %>% 
-  select(-n_missing)
-```
-
-
-## MPG and a Type of Cars
-The following boxplot shows how the distribution of highway MPG (`hwy`) varies by a type of cars (`class`) :blue_car: :truck: :minibus:.
-
-
-```{r}
-ggplot(data = mpg) +
-  geom_boxplot(aes(x = class, y = hwy, fill = class),
-               show.legend = F) +
-  labs(x = "Class", y = "Highway\nMPG") 
-```
-
 
