@@ -8,12 +8,14 @@ website:
     # background: "#1c4982"
     pinned: true
     left:
-      - text: "Project Proposal""
+      - text: Project
         href: project.qmd
       - text: Blog
         href: blog-listing.qmd
       - text: R Basics
         href: danl-399-quarto-r.qmd 
+      - text: Proposal
+        href: danl-399-proposal.qmd
             
   page-footer: 
     center: "Powered with GitHub and Quarto<br>© Jason Copella, 2024"

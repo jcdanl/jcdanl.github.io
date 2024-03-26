@@ -1,5 +1,5 @@
 ---
-title: DANL Project
+title: DANL Project Proposal
 subtitle: "To Be Determined"
 author: 
   - Name: Jason Copella
