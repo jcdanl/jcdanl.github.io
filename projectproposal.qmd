@@ -12,9 +12,9 @@ My project will study the a large dataset containing various statistics and sala
 
 ## Looking at the dataset
 
-Below, I have provided code to load and examine the dataset I plan to use for my project:
+Below, I have provided code to load and then examine the first 20 frames of the dataset I plan to use for my project:
 
 ```{r}
 final_project_dataset<-read.csv("nba_2022-23_stats_salary.csv")
-View(final_project_dataset)
+head(final_project_dataset, n=20)
 ```
