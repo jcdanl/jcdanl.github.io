@@ -29,5 +29,5 @@ format:
     highlight-style: atom-one  # atom-one espresso
     css: styles.css
     toc: false
-    include-after-body: target_blank.html
+
 
