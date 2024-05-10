@@ -9,7 +9,7 @@ website:
     pinned: true
     left:
       - text: Project
-        href: NBAProjectCopella.qmd
+        href: project.qmd
       - text: Proposal
         href: projectproposal.qmd
       - text: Blog
