@@ -17,7 +17,7 @@ website:
       - text: R Basics
         href: danl-399-quarto-r.qmd 
       - text: Dashboard
-        href: danl-399-quarto-r.qmd 
+        href: dashboard.qmd 
           
   page-footer: 
     center: "Powered with GitHub and Quarto<br>© Jason Copella, 2024"

@@ -1,0 +1,84 @@
+---
+title: "Dashboard"
+author: "Jason Copella"
+editor: visual
+format:
+  dashboard:
+    orientation: columns
+---
+
+```{r}
+library(tidyverse)
+nba_data <- read.csv("nba_stats_salary.csv")
+
+```
+
+# Salary vs. VORP
+
+## Column
+
+```{r}
+#| content: valuebox
+#| title: "Average Salary for 2022-23 Season"
+
+list(
+  icon = "currency-dollar",
+  color = "success",
+  value =  formatC(mean(nba_data$Salary), format="d", big.mark=",")
+)
+```
+
+```{r}
+#| content: valuebox
+#| title: "Average VORP for 2022-23 Season"
+
+list(
+  icon = "dribbble",
+  color = "primary",
+  value = round(mean(nba_data$VORP), 2)
+)
+```
+
+```{r}
+#| content: valuebox
+#| title: "Total Players in this Dataset"
+
+list(
+  icon = "person-arms-up",
+  color = "danger",
+  value = 467
+)
+```
+## Column
+
+```{r}
+#| title: Salary and VORP
+
+library(tidyverse)
+library(hrbrthemes)
+
+ggplot(nba_data, aes(x = VORP, y = Salary)) + 
+  geom_point(alpha = 0.4, color = "red") + 
+  stat_smooth(method = "lm", 
+              formula = y ~ x, 
+              geom = "smooth") +
+  scale_y_comma() +
+  labs(x = "Value Over Replacement Player (VORP)",
+       y = "Player Salary ($)", title = "Relationship Between Salary and VORP")+
+  theme(axis.title.y = element_text(margin = margin(0, 10, 0, 0)))
+```
+
+# Distribution
+
+```{r}
+ggplot(nba_data) +
+  geom_histogram((aes(x = VORP)))
+```
+
+
+
+```{r}
+ggplot(nba_data) +
+  geom_histogram((aes(x = Salary)), fill = "blue")
+```
+
