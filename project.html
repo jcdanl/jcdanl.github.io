@@ -287,13 +287,33 @@ The following object is masked from 'package:readr':
 <span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>                      <span class="at">echo =</span> T, <span class="at">eval =</span> T, </span>
 <span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>                      <span class="at">message=</span>F, <span class="at">warning =</span> F, <span class="at">fig.cap =</span> <span class="st">" "</span>)  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>#Introduction My dataset consists of statistical in-game data, categorical data, and salary data for every NBA player to register playing time in the 2022-23 NBA Season. I wanted to use this data to examine what statistics, specifically successful teams, are most putting weight into when deciding the allocation of dollars when constructing a team. Are the most successful teams still following an old-school approach of valuing basic statistics such as PPG, 3P%, and Minutes Played? Has the new wave of advanced stats such as VORP, Win Shares, and TS% taken over? I aim to find the best budget players in the NBA and the most important aspects of building a championship-caliber team.</p>
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>My dataset consists of statistical in-game data, categorical data, and salary data for every NBA player to register playing time in the 2022-23 NBA Season. I wanted to use this data to examine what statistics, specifically successful teams, are most putting weight into when deciding the allocation of dollars when constructing a team. Are the most successful teams still following an old-school approach of valuing basic statistics such as PPG, 3P%, and Minutes Played? Has the new wave of advanced stats such as VORP, Win Shares, and TS% taken over? I aim to find the best budget players in the NBA and the most important aspects of building a championship-caliber team.</p>
+<p>-Link to my dataset: https://www.kaggle.com/datasets/jamiewelsh2/nba-player-salaries-2022-23-season</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>nba_data<span class="ot">&lt;-</span><span class="fu">read_csv</span>(<span class="st">"nba_stats_salary.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>#Salary Information For context, the mean salary for an NBA player for the 2022-23 season was $8,416,599. The salary cap for this $123,655,000. The Larry Bird Exception in the CBA allows teams to go over the salary cap to resign their own players. Thus, the best teams are constructed through savvy drafting and trades. A team must be smart in how they utilize the money they give out to avoid the dreaded overpaid player. Typically, the best budget players are still on their rookie contracts, which last four years after they are drafted. From there, players are eligible for max and supermax contracts, which had a maximum value of $48 million for this season.</p>
-<p>#Statistics I looked at: Points Per Game (PPG) Assists Per Game (APG) Rebounds Per Game (RPG) Three Pointers Per Game Total Minutes Played Player Efficiency Rating (PER) (PTS + REB + AST + STL + BLK − Missed FG − Missed FT - TO) / GP. True Shooting Percentage (TS%) half the points scored divided by the sum of the field goals attempted and 0.475 times the free throws attempted. Usage Percentage (USG%) 100 times the sum of field goals attempted, a third of assists, turnovers and 0.44 times free throws attempted, all divided by the possessions Win Shares (WS) dividing the sum of the player’s marginal point production by his team’s marginal points per win, provides a more holistic overlook than PER and better accounts for defense. Box Plus-Minus (BPM) uses a player’s box score information, position, and the team’s overall performance to estimate the player’s contribution in points above league average per 100 possessions played (does not take into account minutes played) Value Over Replacement Player (VORP) converts the BPM rate into an estimate of each player’s overall contribution to the team, measured vs.&nbsp;what a theoretical “replacement player” would provide, where the “replacement player” is defined as a player on minimum salary or not a normal member of a team’s rotation.</p>
-<p>#Observing Correlation Between Salary and These Statistics</p>
+</section>
+<section id="salary-information" class="level2">
+<h2 class="anchored" data-anchor-id="salary-information">Salary Information</h2>
+<p>For context, the mean salary for an NBA player for the 2022-23 season was /$8,416,599. The salary cap for this season was /$123,655,000. The Larry Bird Exception in the CBA allows teams to go over the salary cap to resign their own players. Thus, the best teams are constructed through savvy drafting and trades. A team must be smart in how they utilize the money they give out to avoid the dreaded overpaid player. Typically, the best budget players are still on their rookie contracts, which last four years after they are drafted. From there, players are eligible for max and supermax contracts, which had a maximum value of $48 million for this season.</p>
+</section>
+<section id="statistics-i-looked-at" class="level2">
+<h2 class="anchored" data-anchor-id="statistics-i-looked-at">Statistics I looked at:</h2>
+<p>-Points Per Game (PPG)</p>
+<p>-Assists Per Game (APG)</p>
+<p>-Rebounds Per Game (RPG)</p>
+<p>-Three Pointers Per Game</p>
+<p>-Total Minutes Played</p>
+<p>-Player Efficiency Rating (PER): (PTS + REB + AST + STL + BLK − Missed FG − Missed FT - TO) / GP.</p>
+<p>-True Shooting Percentage (TS%): half the points scored divided by the sum of the field goals attempted and 0.475 times the free throws attempted.</p>
+<p>-Usage Percentage (USG%) 100 times the sum of field goals attempted, a third of assists, turnovers and 0.44 times free throws attempted, all divided by the possessions -Win Shares (WS): dividing the sum of the player’s marginal point production by his team’s marginal points per win, provides a more holistic overlook than PER and better accounts for defense.</p>
+<p>-Box Plus-Minus (BPM): uses a player’s box score information, position, and the team’s overall performance to estimate the player’s contribution in points above league average per 100 possessions played (does not take into account minutes played)</p>
+<p>-Value Over Replacement Player (VORP): converts the BPM rate into an estimate of each player’s overall contribution to the team, measured vs.&nbsp;what a theoretical “replacement player” would provide, where the “replacement player” is defined as a player on minimum salary or not a normal member of a team’s rotation.</p>
+</section>
+<section id="observing-correlation-between-salary-and-these-statistics" class="level2">
+<h2 class="anchored" data-anchor-id="observing-correlation-between-salary-and-these-statistics">Observing Correlation Between Salary and These Statistics</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(nba_data<span class="sc">$</span>Salary, nba_data<span class="sc">$</span>PTS)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -340,7 +360,9 @@ The following object is masked from 'package:readr':
 <pre><code>[1] 0.41179</code></pre>
 </div>
 </div>
-<p>#Plotting Relationship Between VORP and PPG</p>
+</section>
+<section id="plotting-relationship-between-vorp-and-ppg" class="level2">
+<h2 class="anchored" data-anchor-id="plotting-relationship-between-vorp-and-ppg">Plotting Relationship Between VORP and PPG</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(nba_data, <span class="fu">aes</span>(<span class="at">x =</span> PTS, <span class="at">y =</span> VORP)) <span class="sc">+</span> </span>
 <span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> WS)) <span class="sc">+</span> </span>
@@ -358,7 +380,9 @@ The following object is masked from 'package:readr':
 </div>
 </div>
 <p>As you can see, VORP is heavily dependent on win shares and points per game. Win shares is a better indicator than PPG in my opinion as it takes into account defense and other elements of the game beyond just scoring. As shown by the line of best fit, both have a strong positive relationship with VORP.</p>
-<p>#Plotting the Relationship Between VORP and Salary</p>
+</section>
+<section id="plotting-the-relationship-between-vorp-and-salary" class="level2">
+<h2 class="anchored" data-anchor-id="plotting-the-relationship-between-vorp-and-salary">Plotting the Relationship Between VORP and Salary</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(nba_data, <span class="fu">aes</span>(<span class="at">x =</span> VORP, <span class="at">y =</span> Salary)) <span class="sc">+</span> </span>
 <span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.4</span>, <span class="at">color =</span> <span class="st">"red"</span>) <span class="sc">+</span> </span>
@@ -378,17 +402,39 @@ The following object is masked from 'package:readr':
 </div>
 </div>
 <p>Overall, VORP is positively correlated with salary. However, there are some extreme outliers in this plot that I wanted to further examine and provide context for.</p>
-<p>#Creating a Criteria to Find the Most Overpaid/Underpaid Players I wanted to observe which players were outliers in my previous plot. To do this, I created two brand new variables and filtered a new dataset to eliminate small sample sizes that may skew the data. First, I created a dollar per point per game variable to determine which players provided the most/least scoring for how much they were paid. Then, I wanted only players that played a significant amount of games to avoid skewing the results, so I created a new dataset consisting of only players that played in 45+ games.</p>
+</section>
+<section id="creating-a-criteria-to-find-the-most-overpaidunderpaid-players" class="level2">
+<h2 class="anchored" data-anchor-id="creating-a-criteria-to-find-the-most-overpaidunderpaid-players">Creating a Criteria to Find the Most Overpaid/Underpaid Players</h2>
+<p>I wanted to observe which players were outliers in my previous plot. To do this, I created two brand new variables and filtered a new dataset to eliminate small sample sizes that may skew the data. First, I created a dollar per point per game variable to determine which players provided the most/least scoring for how much they were paid. Then, I wanted only players that played a significant amount of games to avoid skewing the results, so I created a new dataset consisting of only players that played in 45+ games.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb58"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a>nba_data<span class="sc">$</span>DollarPerPPG<span class="ot">&lt;-</span>(nba_data<span class="sc">$</span>Salary<span class="sc">/</span>nba_data<span class="sc">$</span>PTS)</span>
 <span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a>nba_data<span class="sc">$</span>DollarPerVORP<span class="ot">&lt;-</span>(nba_data<span class="sc">$</span>Salary<span class="sc">/</span>nba_data<span class="sc">$</span>VORP)</span>
 <span id="cb58-3"><a href="#cb58-3" aria-hidden="true" tabindex="-1"></a>nba_data_eligibleplayers<span class="ot">&lt;-</span><span class="fu">filter</span>(nba_data, nba_data<span class="sc">$</span>GP<span class="sc">&gt;</span><span class="dv">45</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>#Overpaid Players in 2022-23: Kevin Love (Cleveland Cavaliers/Miami Heat) $3,726,459.5 per Point Per Game $38,196,210 per 1 Value Over Replacement Player Joe Harris (Brooklyn Nets) $2,453,007.50 per Point Per Game $62,142,857 per 1 Value Over Replacement Player Gordon Hayward (Charlotte Hornets) $2,045,918.4 per Point Per Game $150,375,000 per 1 Value Over Replacement Player</p>
-<p>#What Leads to Overpaid Players? 2 of the three players listed as examples in the previous slide were signed to max contracts while already in their late 20s, which is typically past the athletic prime for an NBA player. Harris also signed his lucrative deal in his late 20s. As a result, these players, by the time they reached the end of these massive deals, had clearly lost a step in their game due to a combination of both injuries and age. This led to teams paying costly “buyouts” in the case of Love and Hayward. The Nets, meanwhile, traded Harris following the season for a minimal return. While the basic stats do not look awful on the surface for these three players, their VORP shows their actual meaningful contributions to a team are minimal at best at this point. NBA teams finally recognized this only just recently with all three now playing bench roles at the end of the 2023-24 season.</p>
-<p>#Underpaid Players in 2022-23 Desmond Bane (Memphis Grizzlies) $99,080.93 per Point Per Game $852,096.00 per 1 Value Over Replacement Player Austin Reaves (Los Angeles Lakers) $120,270.62 per Point Per Game $1.302,931.70 per 1 Value Over Replacement Player Immanuel Quickley (New York Knicks) $155,452.35 per Point Per Game $1,102,971.40 per 1 Value Over Replacement Player</p>
-<p>#What Leads to Underpaid Players? None of the players listed in the previous slide were lottery (top 14) selections in their respective drafts. Bane and Quickley were late first round selections, while Reaves was not even drafted. However, all three carved out crucial roles on playoff teams in the 2022-23 season. This shows the importance of looking beyond just the lottery stage to find talent for a competitive team. While lottery players will make upwards of $5 million on rookie contracts, late first round and undrafted talent make well under $2 million. Additionally, teams can have restricted free agent rights to retain this talent. Elite teams need great role players and to properly navigate the salary cap, a bulk of this talent needs to be scouted and drafted in the later stages of the draft.</p>
-<p>#Observing a Successful Team The model showing the relationship between VORP and Salary show teams prioritize VORP, and to an extent Win Shares, when deciding how to spend their cap space on their roster. However, signing lucrative extensions can end up costing teams their championship window as players succumb to age and injury. The Boston Celtics, one of the league’s best teams in recent years, propose an interesting case study on how to successfully allocate salary.</p>
+</section>
+<section id="overpaid-players-in-2022-23" class="level2">
+<h2 class="anchored" data-anchor-id="overpaid-players-in-2022-23">Overpaid Players in 2022-23:</h2>
+<p>Kevin Love (Cleveland Cavaliers/Miami Heat) $3,726,459.5 per Point Per Game $38,196,210 per 1 Value Over Replacement Player</p>
+<p>Joe Harris (Brooklyn Nets) $2,453,007.50 per Point Per Game $62,142,857 per 1 Value Over Replacement Player</p>
+<p>Gordon Hayward (Charlotte Hornets) $2,045,918.4 per Point Per Game $150,375,000 per 1 Value Over Replacement Player</p>
+</section>
+<section id="what-leads-to-overpaid-players" class="level2">
+<h2 class="anchored" data-anchor-id="what-leads-to-overpaid-players">What Leads to Overpaid Players?</h2>
+<p>2 of the three players listed as examples in the previous slide were signed to max contracts while already in their late 20s, which is typically past the athletic prime for an NBA player. Harris also signed his lucrative deal in his late 20s. As a result, these players, by the time they reached the end of these massive deals, had clearly lost a step in their game due to a combination of both injuries and age. This led to teams paying costly “buyouts” in the case of Love and Hayward. The Nets, meanwhile, traded Harris following the season for a minimal return. While the basic stats do not look awful on the surface for these three players, their VORP shows their actual meaningful contributions to a team are minimal at best at this point. NBA teams finally recognized this only just recently with all three now playing bench roles at the end of the 2023-24 season.</p>
+</section>
+<section id="underpaid-players-in-2022-23" class="level2">
+<h2 class="anchored" data-anchor-id="underpaid-players-in-2022-23">Underpaid Players in 2022-23</h2>
+<p>Desmond Bane (Memphis Grizzlies) $99,080.93 per Point Per Game $852,096.00 per 1 Value Over Replacement Player</p>
+<p>Austin Reaves (Los Angeles Lakers) $120,270.62 per Point Per Game $1.302,931.70 per 1 Value Over Replacement Player</p>
+<p>Immanuel Quickley (New York Knicks) $155,452.35 per Point Per Game $1,102,971.40 per 1 Value Over Replacement Player</p>
+</section>
+<section id="what-leads-to-underpaid-players" class="level2">
+<h2 class="anchored" data-anchor-id="what-leads-to-underpaid-players">What Leads to Underpaid Players?</h2>
+<p>None of the players listed in the previous slide were lottery (top 14) selections in their respective drafts. Bane and Quickley were late first round selections, while Reaves was not even drafted. However, all three carved out crucial roles on playoff teams in the 2022-23 season. This shows the importance of looking beyond just the lottery stage to find talent for a competitive team. While lottery players will make upwards of $5 million on rookie contracts, late first round and undrafted talent make well under $2 million. Additionally, teams can have restricted free agent rights to retain this talent. Elite teams need great role players and to properly navigate the salary cap, a bulk of this talent needs to be scouted and drafted in the later stages of the draft.</p>
+</section>
+<section id="observing-a-successful-team" class="level2">
+<h2 class="anchored" data-anchor-id="observing-a-successful-team">Observing a Successful Team</h2>
+<p>The model showing the relationship between VORP and Salary show teams prioritize VORP, and to an extent Win Shares, when deciding how to spend their cap space on their roster. However, signing lucrative extensions can end up costing teams their championship window as players succumb to age and injury. The Boston Celtics, one of the league’s best teams in recent years, propose an interesting case study on how to successfully allocate salary.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb59"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a>nba_data_celtics<span class="ot">&lt;-</span><span class="fu">filter</span>(nba_data_eligibleplayers, Team <span class="sc">==</span> <span class="st">"BOS"</span>)</span>
 <span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(nba_data_eligibleplayers<span class="sc">$</span>VORP)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -425,11 +471,25 @@ The following object is masked from 'package:readr':
 </div>
 </div>
 <p>While the Celtics spend, on average, more money per player than other NBA teams, they are much more effective in how they allocate that money. They spend it on players with higher win shares and are able to get more VORP per dollar from their players than league average. This gives insight into how the Celtics have been so successful for years.</p>
-<p>#Can We Accurately Predict Future Salaries with Just VORP? Given how VORP is a collection of multiple player metrics and statistics, could it be an accurate predictor of future salaries? I observed three players who became free agents following the 2022-23 season and utilized to slope of the line of best fit for the Salary-VORP graph. Donte DiVincenzo (GSW -&gt; NYK) 1.3 VORP, Predicted Salary: ≈ $12,500,000, Actual Salary: $11,717,500 Bruce Brown (DEN -&gt; IND) 0.9 VORP, Predicted Salary: ≈ $10,500,000, Actual Salary: $22,500,000 Austin Reaves (LAL) 1.2 VORP, Predicted Salary: ≈ $12,000,000, Actual Salary: $13,456,968</p>
-<p>#Limitations of This Simple Model: A Strict VORP Model Cannot Account for a Player’s Age Intangibles League Reputation Salary Floor/Cap Loyalty/Hometown Discounts Supermax Contracts Contract Length</p>
-<p>#Works Cited: https://www.spotrac.com/nba https://www.basketball-reference.com/about/glossary.html#:~:text=VORP%20%2D%20Value%20Over%20Replacement%20Player,to%20an%2082%2Dgame%20season. https://www.nba.com/players/free-agent-tracker/2023 https://theathletic.com/4660230/2023/07/02/nba-free-agency-2023-salary-cap-space/ https://hoopshype.com/2018/10/10/nba-bird-rights/</p>
+</section>
+<section id="can-we-accurately-predict-future-salaries-with-just-vorp" class="level2">
+<h2 class="anchored" data-anchor-id="can-we-accurately-predict-future-salaries-with-just-vorp">Can We Accurately Predict Future Salaries with Just VORP?</h2>
+<p>Given how VORP is a collection of multiple player metrics and statistics, could it be an accurate predictor of future salaries? I observed three players who became free agents following the 2022-23 season and utilized to slope of the line of best fit for the Salary-VORP graph. Donte DiVincenzo (GSW -&gt; NYK) 1.3 VORP, Predicted Salary: ≈ $12,500,000, Actual Salary: $11,717,500 Bruce Brown (DEN -&gt; IND) 0.9 VORP, Predicted Salary: ≈ $10,500,000, Actual Salary: $22,500,000 Austin Reaves (LAL) 1.2 VORP, Predicted Salary: ≈ $12,000,000, Actual Salary: $13,456,968</p>
+</section>
+<section id="limitations-of-this-simple-model" class="level2">
+<h2 class="anchored" data-anchor-id="limitations-of-this-simple-model">Limitations of This Simple Model:</h2>
+<p>A Strict VORP Model Cannot Account for a Player’s Age Intangibles League Reputation Salary Floor/Cap Loyalty/Hometown Discounts Supermax Contracts Contract Length</p>
+</section>
+<section id="works-cited" class="level2">
+<h2 class="anchored" data-anchor-id="works-cited">Works Cited:</h2>
+<p>-https://www.spotrac.com/nba</p>
+<p>-https://www.basketball-reference.com/about/glossary.html#:~:text=VORP%20%2D%20Value%20Over%20Replacement%20Player,to%20an%2082%2Dgame%20season</p>
+<p>-https://www.nba.com/players/free-agent-tracker/2023</p>
+<p>-https://theathletic.com/4660230/2023/07/02/nba-free-agency-2023-salary-cap-space/</p>
+<p>-https://hoopshype.com/2018/10/10/nba-bird-rights/</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

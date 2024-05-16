@@ -72,13 +72,13 @@ ggplot(nba_data, aes(x = VORP, y = Salary)) +
 
 ```{r}
 ggplot(nba_data) +
-  geom_histogram((aes(x = VORP)))
+  geom_histogram((aes(x = VORP)), fill = "green3")
 ```
 
 
 
 ```{r}
 ggplot(nba_data) +
-  geom_histogram((aes(x = Salary)), fill = "blue")
+  geom_histogram((aes(x = Salary)), fill = "dodgerblue") + scale_x_comma()
 ```
 
