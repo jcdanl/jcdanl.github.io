@@ -432,40 +432,64 @@ The following object is masked from 'package:readr':
 <h2 class="anchored" data-anchor-id="what-leads-to-underpaid-players">What Leads to Underpaid Players?</h2>
 <p>None of the players listed in the previous slide were lottery (top 14) selections in their respective drafts. Bane and Quickley were late first round selections, while Reaves was not even drafted. However, all three carved out crucial roles on playoff teams in the 2022-23 season. This shows the importance of looking beyond just the lottery stage to find talent for a competitive team. While lottery players will make upwards of $5 million on rookie contracts, late first round and undrafted talent make well under $2 million. Additionally, teams can have restricted free agent rights to retain this talent. Elite teams need great role players and to properly navigate the salary cap, a bulk of this talent needs to be scouted and drafted in the later stages of the draft.</p>
 </section>
+<section id="highlighting-these-players-on-the-graph" class="level2">
+<h2 class="anchored" data-anchor-id="highlighting-these-players-on-the-graph">Highlighting These Players on the Graph</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(nba_data_eligibleplayers, <span class="fu">aes</span>(<span class="at">x =</span> VORP, <span class="at">y =</span> Salary)) <span class="sc">+</span> </span>
+<span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.4</span>, <span class="at">color =</span> <span class="st">"chartreuse4"</span>) <span class="sc">+</span> </span>
+<span id="cb59-3"><a href="#cb59-3" aria-hidden="true" tabindex="-1"></a>   <span class="fu">geom_label_repel</span>(<span class="fu">filter</span>(nba_data, <span class="st">`</span><span class="at">Player Name</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"Desmond Bane"</span> <span class="sc">|</span> <span class="st">`</span><span class="at">Player Name</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"Kevin Love"</span> <span class="sc">|</span> <span class="st">`</span><span class="at">Player Name</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"Gordon Hayward"</span> <span class="sc">|</span> <span class="st">`</span><span class="at">Player Name</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"Austin Reaves"</span> <span class="sc">|</span> <span class="st">`</span><span class="at">Player Name</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"Immanuel Quickley"</span> <span class="sc">|</span> <span class="st">`</span><span class="at">Player Name</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"Joe Harris"</span>), <span class="at">mapping =</span> </span>
+<span id="cb59-4"><a href="#cb59-4" aria-hidden="true" tabindex="-1"></a>              <span class="fu">aes</span>(<span class="at">label =</span> <span class="st">`</span><span class="at">Player Name</span><span class="st">`</span>), <span class="at">min.segment.length =</span> <span class="fu">unit</span>(<span class="dv">0</span>, <span class="st">'lines'</span>),</span>
+<span id="cb59-5"><a href="#cb59-5" aria-hidden="true" tabindex="-1"></a>                   <span class="at">nudge_y =</span> <span class="dv">6</span>) <span class="sc">+</span></span>
+<span id="cb59-6"><a href="#cb59-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, </span>
+<span id="cb59-7"><a href="#cb59-7" aria-hidden="true" tabindex="-1"></a>              <span class="at">formula =</span> y <span class="sc">~</span> x, </span>
+<span id="cb59-8"><a href="#cb59-8" aria-hidden="true" tabindex="-1"></a>              <span class="at">geom =</span> <span class="st">"smooth"</span>) <span class="sc">+</span></span>
+<span id="cb59-9"><a href="#cb59-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_comma</span>() <span class="sc">+</span></span>
+<span id="cb59-10"><a href="#cb59-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Value Over Replacement Player (VORP)"</span>,</span>
+<span id="cb59-11"><a href="#cb59-11" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Player Salary ($)"</span>, <span class="at">title =</span> <span class="st">"Relationship Between Salary and VORP (Over 45 Games Played)"</span>)<span class="sc">+</span></span>
+<span id="cb59-12"><a href="#cb59-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.title.y =</span> <span class="fu">element_text</span>(<span class="at">margin =</span> <span class="fu">margin</span>(<span class="dv">0</span>, <span class="dv">10</span>, <span class="dv">0</span>, <span class="dv">0</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="project_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="768"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
 <section id="observing-a-successful-team" class="level2">
 <h2 class="anchored" data-anchor-id="observing-a-successful-team">Observing a Successful Team</h2>
 <p>The model showing the relationship between VORP and Salary show teams prioritize VORP, and to an extent Win Shares, when deciding how to spend their cap space on their roster. However, signing lucrative extensions can end up costing teams their championship window as players succumb to age and injury. The Boston Celtics, one of the league’s best teams in recent years, propose an interesting case study on how to successfully allocate salary.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a>nba_data_celtics<span class="ot">&lt;-</span><span class="fu">filter</span>(nba_data_eligibleplayers, Team <span class="sc">==</span> <span class="st">"BOS"</span>)</span>
-<span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(nba_data_eligibleplayers<span class="sc">$</span>VORP)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a>nba_data_celtics<span class="ot">&lt;-</span><span class="fu">filter</span>(nba_data_eligibleplayers, Team <span class="sc">==</span> <span class="st">"BOS"</span>)</span>
+<span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(nba_data_eligibleplayers<span class="sc">$</span>VORP)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.8854093</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(nba_data_celtics<span class="sc">$</span>VORP)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(nba_data_celtics<span class="sc">$</span>VORP)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1.67</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(nba_data_eligibleplayers<span class="sc">$</span>Salary)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(nba_data_eligibleplayers<span class="sc">$</span>Salary)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 11230766</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(nba_data_celtics<span class="sc">$</span>Salary)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(nba_data_celtics<span class="sc">$</span>Salary)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 15389529</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(nba_data_eligibleplayers<span class="sc">$</span>WS)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(nba_data_eligibleplayers<span class="sc">$</span>WS)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 3.541637</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(nba_data_celtics<span class="sc">$</span>WS)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(nba_data_celtics<span class="sc">$</span>WS)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 5.04</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(nba_data_eligibleplayers<span class="sc">$</span>DollarPerVORP)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(nba_data_eligibleplayers<span class="sc">$</span>DollarPerVORP)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] Inf</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb73"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(nba_data_celtics<span class="sc">$</span>DollarPerVORP)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(nba_data_celtics<span class="sc">$</span>DollarPerVORP)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 8581931</code></pre>
 </div>
@@ -474,11 +498,14 @@ The following object is masked from 'package:readr':
 </section>
 <section id="can-we-accurately-predict-future-salaries-with-just-vorp" class="level2">
 <h2 class="anchored" data-anchor-id="can-we-accurately-predict-future-salaries-with-just-vorp">Can We Accurately Predict Future Salaries with Just VORP?</h2>
-<p>Given how VORP is a collection of multiple player metrics and statistics, could it be an accurate predictor of future salaries? I observed three players who became free agents following the 2022-23 season and utilized to slope of the line of best fit for the Salary-VORP graph. Donte DiVincenzo (GSW -&gt; NYK) 1.3 VORP, Predicted Salary: ≈ $12,500,000, Actual Salary: $11,717,500 Bruce Brown (DEN -&gt; IND) 0.9 VORP, Predicted Salary: ≈ $10,500,000, Actual Salary: $22,500,000 Austin Reaves (LAL) 1.2 VORP, Predicted Salary: ≈ $12,000,000, Actual Salary: $13,456,968</p>
+<p>Given how VORP is a collection of multiple player metrics and statistics, could it be an accurate predictor of future salaries? I observed three players who became free agents following the 2022-23 season and utilized to slope of the line of best fit for the Salary-VORP graph.</p>
+<p>-Donte DiVincenzo (GSW -&gt; NYK) 1.3 VORP, Predicted Salary: ≈ $12,500,000, Actual Salary: $11,717,500</p>
+<p>-Bruce Brown (DEN -&gt; IND) 0.9 VORP, Predicted Salary: ≈ $10,500,000, Actual Salary: $22,500,000</p>
+<p>-Austin Reaves (LAL) 1.2 VORP, Predicted Salary: ≈ $12,000,000, Actual Salary: $13,456,968</p>
 </section>
 <section id="limitations-of-this-simple-model" class="level2">
 <h2 class="anchored" data-anchor-id="limitations-of-this-simple-model">Limitations of This Simple Model:</h2>
-<p>A Strict VORP Model Cannot Account for a Player’s Age Intangibles League Reputation Salary Floor/Cap Loyalty/Hometown Discounts Supermax Contracts Contract Length</p>
+<p>A Strict VORP Model Cannot Account for a Player’s Age, Intangibles, League Reputation, Salary Floor/Cap, Loyalty/Hometown Discounts, Supermax Contracts, Contract Length</p>
 </section>
 <section id="works-cited" class="level2">
 <h2 class="anchored" data-anchor-id="works-cited">Works Cited:</h2>

@@ -141,6 +141,23 @@ Immanuel Quickley (New York Knicks) \$155,452.35 per Point Per Game \$1,102,971.
 
 None of the players listed in the previous slide were lottery (top 14) selections in their respective drafts. Bane and Quickley were late first round selections, while Reaves was not even drafted. However, all three carved out crucial roles on playoff teams in the 2022-23 season. This shows the importance of looking beyond just the lottery stage to find talent for a competitive team. While lottery players will make upwards of \$5 million on rookie contracts, late first round and undrafted talent make well under \$2 million. Additionally, teams can have restricted free agent rights to retain this talent. Elite teams need great role players and to properly navigate the salary cap, a bulk of this talent needs to be scouted and drafted in the later stages of the draft.
 
+## Highlighting These Players on the Graph
+
+```{r}
+ggplot(nba_data_eligibleplayers, aes(x = VORP, y = Salary)) + 
+  geom_point(alpha = 0.4, color = "chartreuse4") + 
+   geom_label_repel(filter(nba_data, `Player Name` == "Desmond Bane" | `Player Name` == "Kevin Love" | `Player Name` == "Gordon Hayward" | `Player Name` == "Austin Reaves" | `Player Name` == "Immanuel Quickley" | `Player Name` == "Joe Harris"), mapping = 
+              aes(label = `Player Name`), min.segment.length = unit(0, 'lines'),
+                   nudge_y = 6) +
+  stat_smooth(method = "lm", 
+              formula = y ~ x, 
+              geom = "smooth") +
+  scale_y_comma() +
+  labs(x = "Value Over Replacement Player (VORP)",
+       y = "Player Salary ($)", title = "Relationship Between Salary and VORP (Over 45 Games Played)")+
+  theme(axis.title.y = element_text(margin = margin(0, 10, 0, 0)))
+```
+
 ## Observing a Successful Team
 
 The model showing the relationship between VORP and Salary show teams prioritize VORP, and to an extent Win Shares, when deciding how to spend their cap space on their roster. However, signing lucrative extensions can end up costing teams their championship window as players succumb to age and injury. The Boston Celtics, one of the league’s best teams in recent years, propose an interesting case study on how to successfully allocate salary.
@@ -161,11 +178,17 @@ While the Celtics spend, on average, more money per player than other NBA teams,
 
 ## Can We Accurately Predict Future Salaries with Just VORP?
 
-Given how VORP is a collection of multiple player metrics and statistics, could it be an accurate predictor of future salaries? I observed three players who became free agents following the 2022-23 season and utilized to slope of the line of best fit for the Salary-VORP graph. Donte DiVincenzo (GSW -\> NYK) 1.3 VORP, Predicted Salary: ≈ \$12,500,000, Actual Salary: \$11,717,500 Bruce Brown (DEN -\> IND) 0.9 VORP, Predicted Salary: ≈ \$10,500,000, Actual Salary: \$22,500,000 Austin Reaves (LAL) 1.2 VORP, Predicted Salary: ≈ \$12,000,000, Actual Salary: \$13,456,968
+Given how VORP is a collection of multiple player metrics and statistics, could it be an accurate predictor of future salaries? I observed three players who became free agents following the 2022-23 season and utilized to slope of the line of best fit for the Salary-VORP graph.
+
+-Donte DiVincenzo (GSW -\> NYK) 1.3 VORP, Predicted Salary: ≈ \$12,500,000, Actual Salary: \$11,717,500 
+
+-Bruce Brown (DEN -\> IND) 0.9 VORP, Predicted Salary: ≈ \$10,500,000, Actual Salary: \$22,500,000
+
+-Austin Reaves (LAL) 1.2 VORP, Predicted Salary: ≈ \$12,000,000, Actual Salary: \$13,456,968
 
 ## Limitations of This Simple Model:
 
-A Strict VORP Model Cannot Account for a Player’s Age Intangibles League Reputation Salary Floor/Cap Loyalty/Hometown Discounts Supermax Contracts Contract Length
+A Strict VORP Model Cannot Account for a Player’s Age, Intangibles, League Reputation, Salary Floor/Cap, Loyalty/Hometown Discounts, Supermax Contracts, Contract Length
 
 ## Works Cited:
 

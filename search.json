@@ -434,6 +434,13 @@
     "text": "What Leads to Underpaid Players?\nNone of the players listed in the previous slide were lottery (top 14) selections in their respective drafts. Bane and Quickley were late first round selections, while Reaves was not even drafted. However, all three carved out crucial roles on playoff teams in the 2022-23 season. This shows the importance of looking beyond just the lottery stage to find talent for a competitive team. While lottery players will make upwards of $5 million on rookie contracts, late first round and undrafted talent make well under $2 million. Additionally, teams can have restricted free agent rights to retain this talent. Elite teams need great role players and to properly navigate the salary cap, a bulk of this talent needs to be scouted and drafted in the later stages of the draft."
   },
   {
+    "objectID": "project.html#highlighting-these-players-on-the-graph",
+    "href": "project.html#highlighting-these-players-on-the-graph",
+    "title": "The Role of Basic and Advanced Statistics in NBA Contracts",
+    "section": "Highlighting These Players on the Graph",
+    "text": "Highlighting These Players on the Graph\n\nggplot(nba_data_eligibleplayers, aes(x = VORP, y = Salary)) + \n  geom_point(alpha = 0.4, color = \"chartreuse4\") + \n   geom_label_repel(filter(nba_data, `Player Name` == \"Desmond Bane\" | `Player Name` == \"Kevin Love\" | `Player Name` == \"Gordon Hayward\" | `Player Name` == \"Austin Reaves\" | `Player Name` == \"Immanuel Quickley\" | `Player Name` == \"Joe Harris\"), mapping = \n              aes(label = `Player Name`), min.segment.length = unit(0, 'lines'),\n                   nudge_y = 6) +\n  stat_smooth(method = \"lm\", \n              formula = y ~ x, \n              geom = \"smooth\") +\n  scale_y_comma() +\n  labs(x = \"Value Over Replacement Player (VORP)\",\n       y = \"Player Salary ($)\", title = \"Relationship Between Salary and VORP (Over 45 Games Played)\")+\n  theme(axis.title.y = element_text(margin = margin(0, 10, 0, 0)))"
+  },
+  {
     "objectID": "project.html#observing-a-successful-team",
     "href": "project.html#observing-a-successful-team",
     "title": "The Role of Basic and Advanced Statistics in NBA Contracts",
@@ -445,14 +452,14 @@
     "href": "project.html#can-we-accurately-predict-future-salaries-with-just-vorp",
     "title": "The Role of Basic and Advanced Statistics in NBA Contracts",
     "section": "Can We Accurately Predict Future Salaries with Just VORP?",
-    "text": "Can We Accurately Predict Future Salaries with Just VORP?\nGiven how VORP is a collection of multiple player metrics and statistics, could it be an accurate predictor of future salaries? I observed three players who became free agents following the 2022-23 season and utilized to slope of the line of best fit for the Salary-VORP graph. Donte DiVincenzo (GSW -&gt; NYK) 1.3 VORP, Predicted Salary: ≈ $12,500,000, Actual Salary: $11,717,500 Bruce Brown (DEN -&gt; IND) 0.9 VORP, Predicted Salary: ≈ $10,500,000, Actual Salary: $22,500,000 Austin Reaves (LAL) 1.2 VORP, Predicted Salary: ≈ $12,000,000, Actual Salary: $13,456,968"
+    "text": "Can We Accurately Predict Future Salaries with Just VORP?\nGiven how VORP is a collection of multiple player metrics and statistics, could it be an accurate predictor of future salaries? I observed three players who became free agents following the 2022-23 season and utilized to slope of the line of best fit for the Salary-VORP graph.\n-Donte DiVincenzo (GSW -&gt; NYK) 1.3 VORP, Predicted Salary: ≈ $12,500,000, Actual Salary: $11,717,500\n-Bruce Brown (DEN -&gt; IND) 0.9 VORP, Predicted Salary: ≈ $10,500,000, Actual Salary: $22,500,000\n-Austin Reaves (LAL) 1.2 VORP, Predicted Salary: ≈ $12,000,000, Actual Salary: $13,456,968"
   },
   {
     "objectID": "project.html#limitations-of-this-simple-model",
     "href": "project.html#limitations-of-this-simple-model",
     "title": "The Role of Basic and Advanced Statistics in NBA Contracts",
     "section": "Limitations of This Simple Model:",
-    "text": "Limitations of This Simple Model:\nA Strict VORP Model Cannot Account for a Player’s Age Intangibles League Reputation Salary Floor/Cap Loyalty/Hometown Discounts Supermax Contracts Contract Length"
+    "text": "Limitations of This Simple Model:\nA Strict VORP Model Cannot Account for a Player’s Age, Intangibles, League Reputation, Salary Floor/Cap, Loyalty/Hometown Discounts, Supermax Contracts, Contract Length"
   },
   {
     "objectID": "project.html#works-cited",
