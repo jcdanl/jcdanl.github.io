@@ -190,6 +190,10 @@ Given how VORP is a collection of multiple player metrics and statistics, could 
 
 A Strict VORP Model Cannot Account for a Player’s Age, Intangibles, League Reputation, Salary Floor/Cap, Loyalty/Hometown Discounts, Supermax Contracts, Contract Length
 
+## Conclusion
+
+Evidently, the new age of advanced statistics have taken their hold in the NBA. Statistics such as VORP and Win Shares are being heavily valued by successful NBA teams such as the Boston Celtics when attempting to construct their roster within budget contraints. Basic statistics cannot be completely dismissed but it is very evident advanced statistics are a better indictaor to avoid having overpaid players.
+
 ## Works Cited:
 
 -https://www.spotrac.com/nba
